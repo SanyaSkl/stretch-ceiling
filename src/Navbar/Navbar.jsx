@@ -8,8 +8,8 @@ const Navbar = () => {
         <nav>
             <div className={classes.nav}>
                 <div className={classes.number}>
-                    <img className={classes.phoneImg} src={phone} alt={"phone"}/> 8980-321-55-41
-                    <img className={classes.phoneImg} src={phone} alt={"phone"}/> 8915-560-20-26
+                    <img className={classes.phoneImg} src={phone} alt={"phone"}/> +7980-321-55-41
+                    <img className={classes.phoneImg} src={phone} alt={"phone"}/> +7904-535-60-60
                 </div>
                 <h2 className={classes.tagline}>Мы едем к вашим соседям</h2>
                         <Link to="/catalog" className={classes.navMenu}>Каталог</Link>

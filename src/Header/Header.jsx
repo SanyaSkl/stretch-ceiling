@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Header.module.css"
-import logo from "./../assets/Images/1477128283192211030.png"
+import logo from "./../assets/Images/logo.jpg"
 import HomePage from "../Content/HomePage";
 import {NavLink} from "react-router-dom";
 

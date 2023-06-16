@@ -30,12 +30,14 @@
 
 .number {
     margin-left: 50px;
-    font-weight: 600
+    font-weight: 600;
+    -webkit-text-stroke: 1px darkred;
 }
 
 .tagline {
     font-weight: 700;
     text-transform: uppercase;
+    -webkit-text-stroke: 1px red;
 }
 
 .phoneImg {

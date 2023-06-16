@@ -1,4 +1,4 @@
-import content from "../assets/Images/0dc24dafe4a27699604c95824e671863.jpg";
+import content from "../assets/Images/contentImg.jpg";
 import React from "react";
 import classes from "./HomePage.module.css"
 

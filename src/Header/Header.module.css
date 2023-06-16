@@ -19,6 +19,7 @@
 .textHeader {
     font-weight: 700;
     text-transform: uppercase;
+    -webkit-text-stroke: 1px red;
 }
 
 

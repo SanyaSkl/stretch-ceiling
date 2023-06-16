@@ -1,5 +1,18 @@
-.matteWrap {
+.ceilingViewsContainer {
     text-align: center;
+}
+
+.ceilingViewTextContainer {
+
+}
+
+.ceilingTypeHeader {
+    -webkit-text-stroke: 1px red;
+}
+
+.descriptionText {
+    text-align: left;
+    padding-left: 25px;
 }
 
 .cardsWrap {
