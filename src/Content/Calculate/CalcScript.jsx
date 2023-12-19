@@ -1,3 +1,4 @@
+/*
 const CalcScript = () => {
 
 // Элементы формы
@@ -15,28 +16,28 @@ const CalcScript = () => {
     const walls = document.querySelector('input[name="walls"]');
     const floor = document.querySelector('input[name="floor"]');
 
-    const basePrice = 6000;
+    const basePrice = 450;
     const totalPriceElement = document.querySelector('#total-price');
 
 
     function calculate() {
-        let totalPrice = basePrice * parseInt(squareInput.value); // 300 000
+        let totalPrice = basePrice * parseInt(squareInput.value); // 450
 
         for (const radio of radioType) {
             if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value); // 300 000 * 1.2
+                totalPrice = totalPrice * parseFloat(radio.value); // 450 * 1.15
             }
         }
 
         for (const radio of radioBuilding) {
             if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value); // 360 000 * 1.1 = 390 000
+                totalPrice = totalPrice * parseFloat(radio.value); // 450 * 1.5 = 675
             }
         }
 
         for (const radio of radioRooms) {
             if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value); // 390 000 * 0.8 = 350 000
+                totalPrice = totalPrice * parseFloat(radio.value);
             }
         }
 
@@ -79,3 +80,36 @@ const CalcScript = () => {
 
 export default CalcScript;
 
+*/
+const CalcScript = () => {
+
+// Элементы формы. Квадратура помещения.
+    const squareInput = document.querySelector('#square-input')
+    const squareRange = document.querySelector('#square-range')
+
+//Элементы формы. Светильники.
+    const squareInputLamp = document.querySelector('#square-input-lamp')
+    const squareRangeLamp = document.querySelector('#square-range-lamp')
+
+//Связка range с текстовым полем
+//Слушаем событие input
+    squareRange.addEventListener('input', function () {                 //Квадратура Помещения
+        squareInput.value = squareRange.value
+    })
+
+    squareRangeLamp.addEventListener('input', function () {             //Светильники
+        squareInputLamp.value = squareRangeLamp.value
+    })
+
+//Связка текстового поля с range
+    squareInput.addEventListener('input', function () {                 //Квадратура Помещения
+        squareRange.value = squareInput.value
+    })
+
+    squareInputLamp.addEventListener('input', function () {             //Светильники
+        squareRangeLamp.value = squareInputLamp.value
+    })
+}
+
+
+export default CalcScript
