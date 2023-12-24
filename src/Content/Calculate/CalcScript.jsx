@@ -1,114 +1,112 @@
-/*
-const CalcScript = () => {
 
-// Элементы формы
-    const squareInput = document.querySelector('#square-input');
-    const squareRange = document.querySelector('#square-range');
-    const inputs = document.querySelectorAll('input');
-
-// Радиокнопки
-    const radioType = document.querySelectorAll('input[name="type"]');
-    const radioBuilding = document.querySelectorAll('input[name="building"]');
-    const radioRooms = document.querySelectorAll('input[name="rooms"]');
-
-// Чекбоксы
-    const ceilings = document.querySelector('input[name="ceiling"]');
-    const walls = document.querySelector('input[name="walls"]');
-    const floor = document.querySelector('input[name="floor"]');
-
-    const basePrice = 450;
-    const totalPriceElement = document.querySelector('#total-price');
-
-
-    function calculate() {
-        let totalPrice = basePrice * parseInt(squareInput.value); // 450
-
-        for (const radio of radioType) {
-            if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value); // 450 * 1.15
-            }
-        }
-
-        for (const radio of radioBuilding) {
-            if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value); // 450 * 1.5 = 675
-            }
-        }
-
-        for (const radio of radioRooms) {
-            if (radio.checked) {
-                totalPrice = totalPrice * parseFloat(radio.value);
-            }
-        }
-
-        if (ceilings.checked) {
-            totalPrice = totalPrice + parseFloat(ceilings.value) * parseInt(squareInput.value);
-        }
-
-        if (walls.checked) {
-            totalPrice = totalPrice * parseFloat(walls.value); // ---
-        }
-
-        if (floor.checked) {
-            totalPrice = totalPrice * parseFloat(floor.value); // ---
-        }
-
-        const formatter = new Intl.NumberFormat('ru');
-        totalPriceElement.innerText = formatter.format(totalPrice);
-    }
-
-    // Связка range c тектовым полем
-// Слушаем событие input
-    squareRange.addEventListener('input', function () {
-        squareInput.value = squareRange.value;
-    });
-
-// Связка текстового поля с range
-    squareInput.addEventListener('input', function () {
-        squareRange.value = squareInput.value;
-    });
-
-    calculate()
-
-    for (const input of inputs) {
-        input.addEventListener('input', function () {
-        });
-
-
-    }
-}
-
-export default CalcScript;
-
-*/
 const CalcScript = () => {
 
 // Элементы формы. Квадратура помещения.
-    const squareInput = document.querySelector('#square-input')
+    const squareInput = document.querySelector('#square-input')                                //Квадратура Помещения
     const squareRange = document.querySelector('#square-range')
 
 //Элементы формы. Светильники.
-    const squareInputLamp = document.querySelector('#square-input-lamp')
+    const squareInputLamp = document.querySelector('#square-input-lamp')                       //Квадратура Помещения
     const squareRangeLamp = document.querySelector('#square-range-lamp')
+
+//Элементы формы. Люстры.
+    const squareInputChandelier = document.querySelector('#square-input-сhandelier')           //Люстры
+    const squareRangeChandelier = document.querySelector('#square-range-сhandelier')
+
+//Элементы формы. Керамогранитная плитка.
+    const squareInputPorcelainTiles = document.querySelector('#square-input-porcelain-tiles')  //Керамогранитная плитка
+    const squareRangePorcelainTiles = document.querySelector('#square-range-porcelain-tiles')
+    const inputs = document.querySelectorAll('input')
+
+//Радиокнопки
+    const radioType = document.querySelectorAll('input[name="type"]')
+    const radioLamp = document.querySelectorAll('input[name="lamp"]')
+    const radioChandelier = document.querySelectorAll('input[name="chandelier"]')
+
+    const chandelierPrice = 1000
+    const lampPrice = 400
+    const basePrice = 450
+    const totalPriceElement = document.querySelector('#total-price')
 
 //Связка range с текстовым полем
 //Слушаем событие input
-    squareRange.addEventListener('input', function () {                 //Квадратура Помещения
+    squareRange.addEventListener('input', function () {                       //Квадратура Помещения
         squareInput.value = squareRange.value
     })
 
-    squareRangeLamp.addEventListener('input', function () {             //Светильники
+    squareRangeLamp.addEventListener('input', function () {                   //Квадратура Помещения
         squareInputLamp.value = squareRangeLamp.value
     })
 
+    squareRangeChandelier.addEventListener('input', function () {             //Люстры
+        squareInputChandelier.value = squareRangeChandelier.value
+    })
+
+    squareRangePorcelainTiles.addEventListener('input', function () {         //Керамогранитная плитка
+        squareInputPorcelainTiles.value = squareRangePorcelainTiles.value
+    })
+
 //Связка текстового поля с range
-    squareInput.addEventListener('input', function () {                 //Квадратура Помещения
+    squareInput.addEventListener('input', function () {                       //Квадратура Помещения
         squareRange.value = squareInput.value
     })
 
-    squareInputLamp.addEventListener('input', function () {             //Светильники
+    squareInputLamp.addEventListener('input', function () {                   //Светильники
         squareRangeLamp.value = squareInputLamp.value
     })
+
+    squareInputChandelier.addEventListener('input', function () {             //Люстры
+        squareRangeChandelier.value = squareInputChandelier.value
+    })
+
+    squareInputPorcelainTiles.addEventListener('input', function () {         //Керамогранитная плитка
+        squareRangePorcelainTiles.value = squareInputPorcelainTiles.value
+    })
+
+
+
+    function calc() {
+        let baseTotalPrice = basePrice * parseInt(squareInput.value)
+
+        for ( const radio of radioType) {
+            if (radio.checked) {
+                baseTotalPrice *= parseFloat(radio.value)
+            }
+        }
+
+        let lampTotalPrice = lampPrice * parseInt(squareInputLamp.value)
+
+        for ( const radio of radioLamp) {
+            if (radio.checked) {
+                lampTotalPrice *= parseFloat(radio.value)
+            }
+        }
+
+        let chandelierTotalPrice = chandelierPrice * parseInt(squareInputChandelier.value)
+
+        for ( const radio of radioChandelier) {
+            if (radio.checked) {
+                chandelierTotalPrice *= parseFloat(radio.value)
+            }
+        }
+
+        let totalPrice = baseTotalPrice + lampTotalPrice + chandelierTotalPrice
+
+
+        const formatter = new Intl.NumberFormat('ru')
+        totalPriceElement.innerText = formatter.format(totalPrice)
+    }
+
+
+
+    calc()
+
+    for (const input of inputs) {
+        input.addEventListener('input', function () {
+            calc()
+        })
+    }
+
 }
 
 
